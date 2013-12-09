@@ -46,6 +46,7 @@
 	grayRC.titleEdgeInsets = UIEdgeInsetsMake(0, 14, 0, 14);
 	grayRC.height = 46;
 	grayRC.thumb.tintColor = [UIColor colorWithRed:0 green:0.5 blue:0.1 alpha:1];
+    grayRC.thumb.gradientIntensity = 0.05;
 	grayRC.mustSlideToChange = YES;
     
 	[self.view addSubview:grayRC];

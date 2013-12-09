@@ -24,6 +24,7 @@
 @property (nonatomic, readonly) NSUInteger selectedSegmentIndex; // default is 0
 @property (nonatomic, readwrite) BOOL animateToInitialSelection; // default is NO
 @property (nonatomic, readwrite) BOOL crossFadeLabelsOnDrag; // default is NO
+@property (nonatomic, readwrite) BOOL displayInnerShadow; // default is YES
 
 @property (nonatomic, readwrite) BOOL mustSlideToChange; // default is NO - To make the control difficult to accidentally change, force the user to slide it
 @property (nonatomic, readwrite) CGFloat minimumOverlapToChange; // default is 0.66 - Only snap to a new segment if the thumb overlaps it by this fraction

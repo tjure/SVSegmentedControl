@@ -73,6 +73,7 @@
         self.userInteractionEnabled = YES;
         self.animateToInitialSelection = NO;
         
+        self.displayInnerShadow = YES;
         self.mustSlideToChange = NO;
         self.minimumOverlapToChange = 0.66;
         
@@ -577,12 +578,14 @@
         CGColorSpaceRelease(colorSpace);
         
         // inner shadow
-        NSArray *paths = [NSArray arrayWithObject:[UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:self.cornerRadius]];
-        UIImage *mask = [self maskWithPaths:paths bounds:CGRectInset(insetRect, -10, -10)];
-        UIImage *invertedImage = [self invertedImageWithMask:mask color:self.innerShadowColor];
-        
-        CGContextSetShadowWithColor(context, CGSizeMake(0, 1), 2, self.innerShadowColor.CGColor);
-        [invertedImage drawAtPoint:CGPointMake(-10, -10)];
+        if (self.displayInnerShadow) {
+            NSArray *paths = [NSArray arrayWithObject:[UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:self.cornerRadius]];
+            UIImage *mask = [self maskWithPaths:paths bounds:CGRectInset(insetRect, -10, -10)];
+            UIImage *invertedImage = [self invertedImageWithMask:mask color:self.innerShadowColor];
+            
+            CGContextSetShadowWithColor(context, CGSizeMake(0, 1), 2, self.innerShadowColor.CGColor);
+            [invertedImage drawAtPoint:CGPointMake(-10, -10)];
+        }
         
     }
     
